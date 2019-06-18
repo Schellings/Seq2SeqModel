@@ -2,6 +2,11 @@
 基于小黄鸡50w对话语料构建的SequenceToSequence生成式对话模型。
 
 本项目是参照慕课网“NLP实践TensorFlow打造聊天机器人”实战课程实现了一个基于SequenceToSequence模型的单轮聊天机器人。
+
+我们先来看看模型效果：
+
+![image](http://chatbot.xielin.top/img/test.png)
+
 # 2、我的工作
 ## 2.1、替换了一个全新的语料库
 本例采用的是网络上公布的小黄鸡50w对话语料，相比于项目原有的电影对话语料，它语料库更为精简，对话质量更高，数据噪音较少，处理起来较为轻松
