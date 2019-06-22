@@ -1,7 +1,7 @@
 # 1、前言
-基于小黄鸡50w对话语料构建的SequenceToSequence生成式对话模型。
+基于小黄鸡50w对话语料构建的SequenceToSequence生成式单轮对话模型。
 
-本项目是参照慕课网“NLP实践TensorFlow打造聊天机器人”实战课程实现了一个基于SequenceToSequence模型的单轮聊天机器人。
+本项目是参照慕课网“NLP实践TensorFlow打造聊天机器人”实战课程实现了一个基于SequenceToSequence模型的单轮聊天机器人，对模型进行了一定改进优化，使其回答效果大大提高。
 
 我们先来看看模型效果：
 
@@ -11,7 +11,7 @@
 ## 2.1、替换了一个全新的语料库
 本例采用的是网络上公布的小黄鸡50w对话语料，相比于项目原有的电影对话语料，它语料库更为精简，对话质量更高，数据噪音较少，处理起来较为轻松
 ## 2.2、全新的数据清洗规则
-根据语料库的特点，增加根据针对性的数据清洗规则。
+根据语料库的特点，增加更具针对性的数据清洗规则，关于数据清洗部分，请看DataProcessing.py。
 ## 2.3、对模型网络结构进行修改
 借鉴项目原有的网络结构与其他一些SequenceTosequence模型构建时的操作，对原有的模型结构进行一定修改。详情可参照在SequenceToSequence.py中关于模型构建的部分
 ## 2.4、超参数调优
@@ -75,7 +75,7 @@ model_config = {
 
 # 3、部署指南
 
-首先需要部署SequenceToSequence模型构建项目。大体步骤如下：
+部署SequenceToSequence模型构建项目。大体步骤如下：
 1、安装好python3.6开发环境
 2、本项目中使用的是TensorFlow-GPU 1.6.0的版本，根据各自的显卡配置，安装好cuda和cnDnn
 3、（可跳过自行选择）启动命令行，使用以下命令安装虚拟环境：
@@ -98,6 +98,7 @@ pip install -r requestments.txt -i https://pypi.mirrors.ustc.edu.cn/simple/
 ![image](http://chatbot.xielin.top/test.jpg)
 
 6、项目运行：
+
 （1）如果你想要自己训练一个模型出来，可以删除data文件夹下的两个pkl文件，然后运行程序Train.py。
 
 它会帮你去重新构建词表和进行模型的训练与保存。
@@ -113,9 +114,14 @@ pip install -r requestments.txt -i https://pypi.mirrors.ustc.edu.cn/simple/
 （3）运行文件RestfulAPI.py开启web容器，监听8000端口。（启动并没有日志信息）
 
 7、模型测试
+
 使用postman来测试一下模型是否能够正常使用：如下图：
 
 ![image](http://chatbot.xielin.top/test01.jpg)
 
 后端日志信息
 ![image](http://chatbot.xielin.top/test02.jpg)
+
+8、前端网页
+
+前端网页可参考我的另一份开源库：https://github.com/15727763396/chatbot_html
